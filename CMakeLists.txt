@@ -3,4 +3,4 @@ project(Erumesu C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Erumesu src/main.c src/linux_serial_sender.c src/linux_serial_sender.h src/windows_serial_sender.c src/windows_serial_sender.h)
+add_executable(Erumesu src/main.c src/Linux/linux_serial_sender.c src/Linux/linux_serial_sender.h src/windows/windows_serial_sender.c src/windows/windows_serial_sender.h)
