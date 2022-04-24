@@ -10,5 +10,5 @@ HANDLE openComPort(int portNumber);
 void closeComPort(HANDLE hComm);
 void printConfig(DCB dcb);
 DCB editComPortBaudrate(HANDLE hCom, DCB dcb, int baudrate);
-
+void sendData(HANDLE hcom, char *data);
 #endif//ERUMESU_WINDOWS_SERIAL_SENDER_H

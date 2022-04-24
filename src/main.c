@@ -32,6 +32,7 @@ int main() {
 
 	printConfig(dcb);
 
+	sendData(hcom,"S000000255255000000000255000");
 	closeComPort(hcom);
 	return 0;
 }

@@ -52,3 +52,14 @@ void printConfig(DCB dcb)
 	printf("BaudRate = %d, ByteSize = %d, Parity = %d, StopBits = %d\n",
 	       dcb.BaudRate, dcb.ByteSize, dcb.Parity, dcb.StopBits);
 }
+
+void sendData(HANDLE hcom, char *data)
+{
+	LPCVOID lpbuffer = data;
+	DWORD dNoOFBytestoWrite = strlen(data);
+	WriteFile(hcom,
+	          lpbuffer,
+	          dNoOFBytestoWrite,
+	          &dNoOFBytestoWrite,
+	          NULL);
+}
