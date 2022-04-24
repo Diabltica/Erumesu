@@ -10,7 +10,6 @@
 HANDLE openComPort(int portNumber)
 {
 	HANDLE hCom;
-
 	char portName[] = "\\\\.\\COM";
 	sprintf(portName, "%s%d", portName, portNumber);
 
@@ -34,7 +33,7 @@ void closeComPort(HANDLE hCom)
 	CloseHandle(hCom);//Closing the Serial Port
 }
 
-void editComPortBaudrate(HANDLE hCom, DCB dcb, int baudrate)
+DCB editComPortBaudrate(HANDLE hCom, DCB dcb, int baudrate)
 {
 	//  Initialize the DCB structure.
 	SecureZeroMemory(&dcb, sizeof(DCB));
@@ -45,6 +44,7 @@ void editComPortBaudrate(HANDLE hCom, DCB dcb, int baudrate)
 	dcb.BaudRate = baudrate;//set new baudrate
 
 	SetCommState(hCom, &dcb);
+	return dcb;
 }
 
 void printConfig(DCB dcb)

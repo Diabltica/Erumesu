@@ -17,6 +17,21 @@
 #define MATRIX_HEIGHT 6
 
 int main() {
-	printf("Hello, World!\n %d",MATRIX_HEIGHT);
+	HANDLE hcom;
+	DCB dcb;
+
+	hcom = openComPort(13);
+
+	if(hcom == NULL){
+		printf("Error COM port don't open successfully");
+		return 0;
+	}
+	printf("COM port open successfully\n");
+
+	dcb = editComPortBaudrate(hcom, dcb, 115200);
+
+	printConfig(dcb);
+
+	closeComPort(hcom);
 	return 0;
 }
