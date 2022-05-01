@@ -2,6 +2,7 @@
 	Created by LE NINIVEN Thomas 24/04/2022
 */
 #include <stdio.h>
+#include <errno.h>
 
 // Check OS
 #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
@@ -15,18 +16,24 @@
 
 #define MATRIX_WIDTH 8
 #define MATRIX_HEIGHT 6
+#define PORT_NUMBER 3
 
 int main() {
 	HANDLE hcom;
 	DCB dcb;
 
-	hcom = openComPort(13);
+	hcom = openComPort(PORT_NUMBER);
 
-	if(hcom == NULL){
-		printf("Error COM port don't open successfully");
+	if(hcom == INVALID_HANDLE_VALUE){
+        DWORD dLastError = GetLastError();
+        switch (dLastError) {
+            case 5: printf("Error COM port %d access denied, port busy\n", PORT_NUMBER);
+                    break;
+            default: printf("COM port %d not found\n", PORT_NUMBER);
+        }
 		return 0;
 	}
-	printf("COM port open successfully\n");
+	printf("COM port %d opened successfully\n", PORT_NUMBER);
 
 	dcb = editComPortBaudrate(hcom, dcb, 115200);
 
