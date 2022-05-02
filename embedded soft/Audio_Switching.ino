@@ -57,6 +57,10 @@ void receiveData(){
     int led_number = 0;
     int color_buffer = 0;
     int RGB[3];
+    incomingByte = Serial.read();
+    if(incomingByte == 78)
+        led_number = Serial.read();
+
     while(Serial.available() > 0){
       for(int v = 0; v < 3; v++){
         for(int i = 0; i < 3; i++){

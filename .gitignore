@@ -1,3 +1,6 @@
 .idea/
 cmake-build-debug/
 .clang-format
+/embedded soft/cmake-build-debug/
+/embedded soft/cmake/
+/embedded soft/.idea/

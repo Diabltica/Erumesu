@@ -9,8 +9,10 @@
 HANDLE openComPort(int portNumber);
 void closeComPort(HANDLE hComm);
 void printConfig(DCB dcb);
-//BAUDRATE AVAILABLE
-/* 110
+//
+/**
+ * BAUDRATE AVAILABLE
+ * 110
  * 300
  * 600
  * 1200
