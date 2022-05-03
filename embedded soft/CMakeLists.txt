@@ -30,8 +30,8 @@ set(${PROJECT_NAME}_SKETCH Audio_Switching.ino)
 
 #### Additional settings for programmer. From programmers.txt
 # set(${PROJECT_NAME}_PROGRAMMER avrispmkii)
-# set(${PROJECT_NAME}_PORT /dev/cu.usbserial-00000000)
-# set(micro.upload.speed 9600)
+set(${PROJECT_NAME}_PORT COM6)
+set(micro.upload.speed 115200)
 
 ## Verbose build process
 # set(${PROJECT_NAME}_AFLAGS -v)

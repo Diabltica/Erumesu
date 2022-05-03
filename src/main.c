@@ -38,8 +38,10 @@ int main() {
 	dcb = editComPortBaudrate(hcom, dcb, 115200);
 
 	printConfig(dcb);
+     // Data protocol
+     // SN <LED_NUMBER> R <8bits> G <8bits> B <8bits> R <8bits> G <8bits> B <8bits> E <To End>
 
-	sendData(hcom,"S000000255255000000000255000");
+	sendData(hcom,"SN1R255B00G000E");
 	closeComPort(hcom);
 	return 0;
 }
