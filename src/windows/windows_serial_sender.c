@@ -20,12 +20,7 @@ HANDLE openComPort(int portNumber)
 	                   OPEN_EXISTING,               // Open existing port only
 	                   0,                           // Non Overlapped I/O
 	                   NULL);                       // Null for Comm Devices
-
-	if (hCom == INVALID_HANDLE_VALUE) {
-		return NULL;
-	} else {
-		return hCom;
-	}
+    return hCom;
 }
 
 void closeComPort(HANDLE hCom)
