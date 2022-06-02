@@ -60,11 +60,8 @@ void receiveData(){
     
   	for(int i = 0; i < 2; i++){ //get two first number
   		incomingByte = Serial.read() - 48;
-      Serial.println(led_number);
       power = pow(10, 1 - i);
   		led_number = led_number + incomingByte * power;
-      Serial.print("power");
-      Serial.println(power);
   	}
     Serial.println(led_number);
     while(Serial.available() > 0){
